@@ -1,3 +1,8 @@
+/**
+ * Get the shell and arguments to use for executing commands in Deno.
+ *
+ * @returns - Array of shell and arguments.
+ */
 export function getExecPrefix(): string[] {
   const envShell = Deno.env.get("SHELL");
   if (envShell?.endsWith("pwsh.exe") || envShell?.endsWith("powershell.exe")) {
@@ -11,6 +16,12 @@ export function getExecPrefix(): string[] {
   }
 }
 
+/**
+ * Execute a shell command.
+ *
+ * @param command - The shell command to execute.
+ * @returns - The child process.
+ */
 export function exec(command: string): Deno.ChildProcess {
   const [shell, ...args] = getExecPrefix();
   const process = new Deno.Command(shell, {
@@ -84,7 +95,11 @@ function mergeStreams(streams: ReadableStream[], isStdErr = false) {
   });
 }
 
-// Main function to run the commands
+/**
+ * Run concurrent shell commands.
+ *
+ * @param commands - Array of full shell commands to run.
+ */
 export const concurrently = async (
   commands: string[] = [],
 ): Promise<void> => {
