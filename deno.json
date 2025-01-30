@@ -1,4 +1,6 @@
 {
+  "name": "@orgsoft/concurrently",
+  "exports": "./mod.ts",
   "version": "0.1.0",
   "tasks": {
     "install": "deno install -frAg -n concurrently concurrently.ts",

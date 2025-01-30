@@ -1,6 +1,7 @@
 # concurrently
 
-Allows running concurrent commands and supports multiple levels of nesting.
+Allows running concurrent shell commands and supports multiple levels of
+nesting. Commands have alternating colors and are prefixed with their index.
 
 ## Usage
 
@@ -13,13 +14,13 @@ concurrently "deno lint" "deno fmt" "sleep 1 && echo 'it worked!'"
 # Nested concurrent commands
 concurrently \
   "concurrently 'deno lint' 'deno fmt'" \
-  "deno run --watch main.ts"
+  "sleep 1 && echo 'it worked!'"
 ```
 
 Code:
 
 ```ts
-import concurrently from "@orgsoft/concurrently";
+import concurrently from "jsr:@orgsoft/concurrently";
 
 await concurrently(["deno lint", "deno fmt", "sleep 1 && echo 'it worked!'"]);
 ```
@@ -28,10 +29,16 @@ await concurrently(["deno lint", "deno fmt", "sleep 1 && echo 'it worked!'"]);
 
 Recommended:
 
-- `deno install -rAf -n concurrently @orgsoft/concurrently`
+```sh
+deno install -rAf -n concurrently jsr:@orgsoft/concurrently
+```
 
 More restrictive:
 
-- `deno install -rf --allow-env=SHELL -n concurrently @orgsoft/concurrently`
+```sh
+deno install -rf --allow-env=SHELL -n concurrently jsr:@orgsoft/concurrently
+```
 
-(`deno`)[deno.com] is required. You can change the name of the globally installed command by changing `-n concurrently` to `-n mycommandname`.
+[`deno`](https://deno.com) is required to install and use `concurrently`. You can change
+the name of the globally installed command by changing `-n concurrently` to
+`-n mycommandname`.

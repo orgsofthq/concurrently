@@ -85,7 +85,9 @@ function mergeStreams(streams: ReadableStream[], isStdErr = false) {
 }
 
 // Main function to run the commands
-export const concurrently = async (commands: string[] = []) => {
+export const concurrently = async (
+  commands: string[] = [],
+): Promise<void> => {
   if (commands.length === 0) {
     console.error("Please provide at least one shell command.");
     Deno.exit(1);
