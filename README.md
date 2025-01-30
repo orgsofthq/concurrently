@@ -30,13 +30,13 @@ await concurrently(["deno lint", "deno fmt", "sleep 1 && echo 'it worked!'"]);
 Recommended:
 
 ```sh
-deno install -rAf -n concurrently jsr:@orgsoft/concurrently
+deno install -frAg -n concurrently jsr:@orgsoft/concurrently
 ```
 
 More restrictive:
 
 ```sh
-deno install -rf --allow-env=SHELL -n concurrently jsr:@orgsoft/concurrently
+deno install -frg --allow-env=SHELL -n concurrently jsr:@orgsoft/concurrently
 ```
 
 [`deno`](https://deno.com) is required to install and use `concurrently`. You can change

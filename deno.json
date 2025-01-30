@@ -2,7 +2,7 @@
   "name": "@orgsoft/concurrently",
   "description": "Run concurrent shell commands",
   "exports": "./mod.ts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "tasks": {
     "install": "deno install -frAg -n concurrently concurrently.ts",
     "install:dev": "deno install -frAg -n concurrently concurrently.ts",
