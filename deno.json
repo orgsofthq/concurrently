@@ -1,0 +1,9 @@
+{
+  "version": "0.1.0",
+  "tasks": {
+    "install": "deno install -frAg -n concurrently concurrently.ts",
+    "install:dev": "deno install -frAg -n concurrently concurrently.ts",
+    "install:safer": "deno install -frg --allow-env=SHELL --allow-run concurrently.ts",
+    "install:safer:dev": "deno install -frg --allow-env=SHELL --allow-run concurrently.ts"
+  }
+}
